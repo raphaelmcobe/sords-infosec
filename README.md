@@ -7,5 +7,9 @@ Security Lecture material for the RDA CODATA School for Data Scientists. Made fo
 - Evening Session of discussion points and crypto exercises
 
 ## How to compile?
-Each lecture is a latex project. For now, each one should be compiled individually. 
+Each lecture is a latex project. For now, each one should be compiled individually by running 
+```
+latexmk -pdf 
+```
+
 Diagrams have been made with powerpoint (sorry, it's not open source but it was the easiest option...).
