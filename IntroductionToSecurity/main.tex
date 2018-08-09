@@ -1,0 +1,528 @@
+\documentclass{beamer}
+% * <hannah.short@cern.ch> 2018-08-09T07:11:21.779Z:
+%
+% ^.
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usetheme{cern}
+\usepackage{wrapfig}
+
+%The CERN logo is legally protected. Please visit http://cern.ch/copyright for information on the terms of use of CERN content, including the CERN logo.
+
+% The optional `\author` command defines the author and is displayed in the slide produced by the `\titlepage` command.
+\author{Hannah Short (CERN), Sebastian Lopienski (CERN)}
+
+% The optional `\title` command defines the title and is displayed in the slide produced by the `\titlepage` command.
+\title{Introduction to Information Security}
+
+% The optional `\subtitle` command will add a smaller title below the main one, and will not be displayed in any of the slides' footer.
+\subtitle{CODATA School}
+
+% The optional `\date` command will display a custom free text date on the all of the slides' footer. If omitted today's date will be used.
+%\date{Monday, 1st January 2018}
+
+\begin{document}
+
+\frontcover
+
+% The optional `\titlepage` command will create a slide with the presentation's title, subtitle and author.
+\frame{\titlepage}
+
+% The optional `\tableofcontents` command will automatically create a table of contents based om the sections.
+\frame{\tableofcontents}
+
+\begin{frame}{Lecturers}
+These slides have been compiled by members of the CERN Computer Security Team based at CERN, the European Organisation for Nuclear Research.
+\begin{center}
+\begin{tabular}{ c c  }
+ \includegraphics[width=0.2\linewidth]{lecturer1.png} & \includegraphics[width=0.2\linewidth]{Lecturer2.png}  \\ 
+ Hannah Short & Sebastian Lopienski  \\  
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Course Objectives}
+	\begin{itemize}
+		\item Understand why Security is important for you as a Data Scientist
+		\item Familiarise yourself with the basic principles of Information Security
+	\end{itemize}
+\textbf{Note:} \newline
+\textit{}{If the slide title is in {\color{red}red}, the slide is considered an advanced topic}
+\end{frame}
+
+\section{Why Security?}
+\frame{\sectionpage}
+
+\begin{frame}{Why Security?}
+	\begin{itemize}
+		\item You are constantly exposed to reputational, financial and even physical risks online
+		\item The aim is to \textbf{minimise your exposure to risk} through
+        \begin{itemize}
+        	\item Secure online activity
+            \item Secure software design
+        \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Safety vs Security}
+\textbf{Safety} is about protecting from \textbf{accidental risks} 
+\begin{itemize}
+\item road safety
+\item  air travel safety
+\end{itemize}
+\textbf{Security} is about mitigating risks of dangers
+caused by \textbf{intentional, malicious actions} 
+\begin{itemize}
+\item homeland security
+\item airport and aircraft security
+\item information and computer security
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why is security difficult?}
+Security is as strong as the weakest link. There is no 100\% security!
+\begin{center}
+\includegraphics[width=0.8\linewidth]{link.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{What is risk?}
+    \begin{itemize}
+		\item Probability * impact
+		\item Risks should be: Assessed, Prioritised, Mitigated, Avoided and finally Accepted
+	\end{itemize}
+    \begin{center} 
+      \includegraphics[width=0.45\linewidth]{risk-matrix.png} 
+    \end{center}
+\end{frame}
+
+\begin{frame}{Typical Threats}
+\center 
+But we're Scientists, surely we're not a target...! 
+\end{frame}
+
+\begin{frame}{Typical Threats}
+  \begin{center}
+		\includegraphics[width=0.65\linewidth]{lhc-attacked.png} \newline
+        {\small \url{https://www.wired.com/2008/09/hackers-infiltr/} \par}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Typical Threats}
+  \begin{center}
+      \includegraphics[width=0.4\linewidth]{greek-attack.png}  \newline
+  	 {\small \url{https://www.wired.com/2008/09/hackers-infiltr/} \par}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Attackers}
+  \begin{center} 
+      \includegraphics[width=1\linewidth]{attackers.png} 
+    \end{center}
+\end{frame}
+
+\begin{frame}{Hacking as a Business}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{google-bounty.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Hacking as a Business}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{facebook-bounty.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Why Security - Summary}
+\begin{itemize}
+\item Security = mitigating risk of malicious actions
+\item Science is an interesting target for bad guys/girls
+\end{itemize}
+\end{frame}
+
+\section{Data Security Concepts}
+\frame{\sectionpage}
+
+\begin{frame}{Data Security Concepts}
+At the heart of Security we have three key components:
+	\begin{itemize}
+		\item Technology
+		\item Processes
+        \item People
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Technology}
+We will come back to some of this in part 2 of our lecture course :) 
+\end{frame}
+
+\begin{frame}{Processes}
+\textit{``Security is a process, not a product"} - Bruce Schneier
+\end{frame}
+
+\begin{frame}{Processes}
+\begin{center}
+\begin{tabular}{ |c|c| }
+\hline
+ \textbf{Security Measure} & \textbf{Requires}\\
+\hline \hline
+ Antivirus software & Virus signature Updates \\ \hline
+ Monitoring systems & Checking, reacting to alarms \\  \hline
+ Endpoint security & OS and software patching \\ \hline
+ Security policies & Updating, enforcing \\
+\hline
+\end{tabular}
+\end{center}
+Risk management, vulnerability management, business continuity planning, security  development lifecycle etc... \textbf{these are ongoing processes, not one-off exercises.}
+\end{frame}
+
+\begin{frame}{Processes}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{process1.png} 
+\end{center}
+\end{frame}
+
+\begin{frame}{Processes}
+Security solutions often degrade with time - they need to be verified periodically!
+\begin{center}
+\includegraphics[width=0.7\linewidth]{process2.png} 
+\end{center}
+\end{frame}
+
+\begin{frame}{People}
+	\begin{itemize}
+		\item Have flawed risk perception
+		\item Are bad at dealing with exceptions and rare cases
+        \item Can't take correct security decisions
+        \item Put too much trust in their computers
+        \item Easily fall for social engineering
+        \item Sometimes turn malicious
+        \item Prefer convenience and bypass security measures
+        \item Often make mistakes...
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Risk Perception}
+Is flying more dangerous than traveling by car?
+\newline
+\includegraphics[width=0.8\linewidth]{planecar.png}
+\newline 
+Are you more likely to be killed by a shark, a pig or a coconut?
+\newline
+\includegraphics[width=0.8\linewidth]{sharkpigcoco.png}
+\end{frame}
+
+\begin{frame}{Social Engineering}
+\begin{center}
+\includegraphics[width=0.4\linewidth]{socialengineering.png}\newline
+{\small \url{https://www.smbc-comics.com}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Social Engineering}
+  \begin{itemize}
+    \item First the Social Engineer gathers information:
+    \begin{itemize}
+    	\item Public and semi public information; names, hierarchy, who's on holiday, project names etc
+    \end{itemize}
+    \item Armed with the information they:
+     \begin{itemize}
+    	\item Use \textbf{influence, persuasion} or \textbf{threat}
+        \item Abuse people's \textbf{compassion, fear} or \textbf{greed}
+        \item Exploit tendency to \textbf{trust} and help
+    \end{itemize}
+   	\item In order to gain unauthorised access to systems or information
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{ebay.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Taking security decisions}
+Users typically make poor security choices despite systems trying to protect them!
+\includegraphics[width=1\linewidth]{security-decisions.png}
+\end{frame}
+
+\begin{frame}{Data Security Concepts - Summary}
+\begin{itemize}
+\item Processes must be ongoing, security degrades with time
+\item People often provide the easiest way for an attacker to compromise the system 
+\item Security is only as strong as the weakest link - don't lock the front door but leave the back door open!
+\end{itemize}
+\end{frame}
+
+\section{Security Objectives}
+\frame{\sectionpage}
+
+\begin{frame}{Security Objectives}
+	\begin{itemize}
+		\item Confidentiality
+		\item Integrity
+        \item Availability
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Security Objectives}
+	\begin{itemize}
+		\item \textbf{Confidentiality}
+		\item Integrity
+        \item Availability
+	\end{itemize}
+    Can the correct people access the data at the correct time?
+	\linebreak
+    \linebreak
+    { \color{red} \textit{Security Tip: Pay attention to where your data is stored and how it is shared!} }
+\end{frame}
+
+\begin{frame}{Confidentiality}
+\begin{itemize}
+\item Your online identity is as valuable as your passport 
+\item Your authorisation may be misused if it falls into the wrong hands
+\end{itemize}
+{ \color{red} \textit{Security Tip: Store your secrets safely, not in the public domain, e.g. github} }
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{github-bitcoin.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{How bad can it be?}
+\begin{itemize}
+\item 5 minutes exposure
+\item \$2,375
+\item Plus it could have been avoided, Amazon has a service (IAM) to manage keys securely...
+\end{itemize}
+{\small \url{https://www.theregister.co.uk/2015/01/06/ dev_blunder_shows_github_crawling_with_keyslurping_bots/} \par}
+\end{frame}
+
+\begin{frame}{Security Objectives}
+	\begin{itemize}
+		\item Confidentiality
+		\item \textbf{Integrity}
+        \item Availability
+	\end{itemize}
+    Can we be sure that the data is reliable and hasn't been altered?
+	\linebreak
+    \linebreak
+    { \color{red} \textit{Security Tip: Reduce the risk of impersonation, enable multi-factor authentication wherever possible!} }
+\end{frame}
+
+
+\begin{frame}{Security Objectives}
+	\begin{itemize}
+		\item Confidentiality
+		\item Integrity
+        \item \textbf{Availability}
+	\end{itemize}
+    Is the data available? Are our systems reliable?
+	\linebreak
+    \linebreak
+    { \color{red} \textit{Security Tip: Keep backups!} }
+\end{frame}
+
+\begin{frame}{Identity}
+A key part of ensuring Confidentiality, Integrity and Availability objectives are met! 
+\begin{itemize}
+\item How can you know who is using a system?
+\item How can you ensure that only the correct people are using a system?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Authentication and Authorisation}
+\includegraphics[width=1\linewidth]{authn-authz.png}
+\end{frame}
+
+\begin{frame}{Authentication and Authorisation}
+Authentication = Who am I? How can I prove my Identity?
+\includegraphics[width=1\linewidth]{authn-authz.png}
+\end{frame}
+
+\begin{frame}{Authentication and Authorisation}
+Authorisation = What am I able to do?
+\includegraphics[width=1\linewidth]{authn-authz.png}
+\end{frame}
+\begin{frame}{Multifactor Authentication}
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+\hline
+ \textbf{Factor} & \textbf{Description} & \textbf{Example}\\
+\hline \hline
+ 1 & Something you know & Password, pin\\ \hline
+ 2 & Something you have & Phone,  token \\  \hline
+ 3 & Something you are & Fingerprint, iris scan \\ \hline
+\end{tabular}
+\end{center}
+Which is most secure?
+\end{frame}
+
+\begin{frame}{Security Objectives - Summary}
+\begin{itemize}
+\item Key objectives: Confidentiality, Integrity and Availability
+\item Consider disaster scenarios and plan for them 
+\item Authentication and Authorisation are critical to meeting security objectives
+\end{itemize}
+\end{frame}
+
+\section{Guidelines and Principles}
+\frame{\sectionpage}
+
+\begin{frame}{Security Measures}
+Is this a good security measure?
+\begin{center}
+\includegraphics[width=0.6\linewidth]{flipflops.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Security Measures}
+\begin{itemize}
+ \item What problem is it trying to solve? 
+ \item Does it help? 
+ \item Does it introduce new problems? 
+ \item What are the costs?
+ \end{itemize} 
+ \begin{center}
+	\includegraphics[width=0.4\linewidth]{flipflops.png} 
+ \end{center}
+\end{frame}
+
+\begin{frame}{Security Measures}
+How much security?
+\begin{tabular}{c c}
+\includegraphics[height = 3.5cm]{ostrich.jpg}
+& \includegraphics[height = 3.5cm]{cat.jpg}
+\end{tabular}
+\centering
+It's a balance of risk, usability and cost 
+\end{frame}
+
+\begin{frame}{Security Design Principles}
+  \begin{itemize}
+    \item Defense in depth
+    \item Deny by default
+    \item Least privilege principle
+    \item Complex = insecure
+    \item Security, not obscurity
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Defense in depth}
+How can you avoid a single point of failure? Where should you keep your assets?
+\begin{center}
+\includegraphics[width=0.7\linewidth]{castle.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{{\color{red}Deny by default}}
+Use whitelisting rather than blacklisting
+\begin{center}
+\includegraphics[width=0.8\linewidth]{whitelisting.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Least privilege principle}
+“Need to know” basis: require, grant and use only the privileges that are really needed
+\end{frame}
+
+\begin{frame}{Complex = insecure}
+Maintenance of complex code leads to vulnerabilities
+\begin{center}
+\includegraphics[width=0.6\linewidth]{complex.png} \newline
+System calls in Apache
+\end{center}
+\end{frame}
+
+\begin{frame}{Security by obscurity}
+What is it? Hiding design or implementation details to gain security:
+\begin{itemize}
+\item e.g. hiding a DB server under a name different from “db”, etc.
+\item e.g. keeping the encryption algorithm secret, instead of the key
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Security by obscurity}
+The idea doesn’t work
+\begin{itemize}
+\item It’s difficult to keep secrets (e.g. source code gets stolen, Google indexes hidden pages...)
+\item If security of a system depends on a secret that's revealed, the whole system is compromised
+\item Secret algorithms, protocols etc. will not get reviewed, flaws won’t be spotted and fixed, less security
+\end{itemize}
+\centering
+{ \color{red} \textit{Systems should be secure by design, not by obfuscation!} }
+\end{frame}
+
+\begin{frame}{Guidelines and Principles - Summary}
+\begin{itemize}
+\item Security is a balance of risk, usability and cost
+\item The Security Design Principles discussed will help you prioritise security
+\item Ensure Security Design Principles are included from the very beginning of a software project
+\end{itemize}
+\end{frame}
+
+\section{Data Privacy}
+\frame{\sectionpage}
+
+\begin{frame}{Data Protection}
+As a Data Scientist, you may be collecting Personal Information. If this data is not treated according to the law, you may be liable for significant fines. 
+\begin{itemize}
+\item Many countries have their own Data Protection laws
+\item The EU General Data Protection Regulation is applicable to anyone physically located in the EU
+\item Certain research communities require approval from ethics boards for data collection
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data Protection}
+Best Practices
+\begin{itemize}
+\item \textbf{Minimise} Data Collection
+\item Be \textbf{transparent}; why are you collecting the data? Which data are you collecting? How will you share it? How long will you keep it?
+\item Treat the data with \textbf{respect}; store it securely, anonymise it when possible
+\item Make it clear how data owners can \textbf{retrieve} their data, or request \textbf{modification} or \textbf{deletion}?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Anonymisation}
+\begin{itemize}
+\item Even if you anonymise the name, are individuals still identifiable from the data?
+\item If you convert names to anonymous strings, can you get back to the name?  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width=0.45\linewidth]{anonymous-form.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Data Privacy - Summary}
+\begin{itemize}
+\item Minimise the collection of privacy impacting data 
+\item Be transparent about data processing and transfer
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Questions?}
+\begin{itemize}
+\item Ask now
+\item Find us during the break
+\item You are welcome to contact us after the school
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Credits}
+	\begin{itemize}
+		\item Sebastian Lopienski (CERN IT) for security principles
+		\item Stefan Lueders (CERN IT) for threats
+        \item Hannah Short (CERN IT) for identity aspects 
+	\end{itemize}
+\end{frame}
+
+\backcover
+
+\end{document}
