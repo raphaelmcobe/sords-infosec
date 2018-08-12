@@ -25,9 +25,6 @@
 % The optional `\titlepage` command will create a slide with the presentation's title, subtitle and author.
 \frame{\titlepage}
 
-% The optional `\tableofcontents` command will automatically create a table of contents based om the sections.
-\frame{\tableofcontents}
-
 \begin{frame}{Lecturers}
 These slides have been compiled by members of the CERN Computer Security Team based at CERN, the European Organisation for Nuclear Research.
 \begin{center}
@@ -37,6 +34,9 @@ These slides have been compiled by members of the CERN Computer Security Team ba
 \end{tabular}
 \end{center}
 \end{frame}
+
+% The optional `\tableofcontents` command will automatically create a table of contents based om the sections.
+\frame{\tableofcontents}
 
 \begin{frame}{Course Objectives}
 	\begin{itemize}
@@ -63,7 +63,7 @@ If he had anything confidential to say, he wrote it in cipher, that is, by excha
 \begin{frame}{Caesar Cipher}
 \begin{center}
 Pxkqx Zixrp fp zljfkd ql qltk \newline
-\includegraphics[width=0.7\linewidth]{caesar-cipher.png}
+\includegraphics[width=0.7\linewidth]{caesar-cipher.png}\newline
 \end{center}
 \end{frame}
 
@@ -147,7 +147,7 @@ What are the goals?
 
 \begin{frame}{Symmetric Encryption}
 \begin{center}
-\includegraphics[width=0.7\linewidth]{symmetric-encryption.png}
+\includegraphics[width=0.8\linewidth]{symmetric-encryption.png}
 \end{center}
 \end{frame}
 
@@ -259,7 +259,7 @@ What is a *good* hash function? For \(h = hash(m)\)
 \end{frame}
 
 \begin{frame}{Checksums}
-You may also hear the term "\textbf{Checksum}". The concept is the same but checksums are used to validate the integrity data. 
+You may also hear the term "\textbf{Checksum}". The concept is the same but checksums are used specifically to validate the integrity data. 
 \begin{center}
 \includegraphics[width=0.45\linewidth]{credit-card.png} \newline
 {\footnotesize The last digit is a checksum! \url{https://www.codeproject.com/Tips/515367/Validate-credit-card-number-with-Mod-algorithm} \par}
@@ -301,7 +301,7 @@ Certificates are accompanied by private keys (kept secret by the owner!)
 \begin{frame}{Certificate Authentication}
 Owning a Certificate of Alice does not mean that you are Alice
 \begin{itemize}
-\item Owning a Certificate does not imply you are authenticated
+\item Holding a Certificate does not imply you are authenticated
 \item How would you verify that the person who comes to you pretending to be Alice and showing you a certificate of Alice is really Alice ?
 \begin{itemize}
 \item You have to challenge her!
@@ -344,7 +344,7 @@ Hyper-Text Transfer Protocol \textbf{Secure}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{HTTPS Handshake}
+\begin{frame}{{\color{red}HTTPS Handshake}}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{https-flow.png} 
 \end{center}
@@ -377,7 +377,7 @@ Verify the checksum of downloaded software & Download software from unverified s
 
 \begin{frame}{Web Security - Summary}
 \begin{itemize}
-\item Certificates are used to establish authenticated, encrypted channels when you browse the web
+\item Certificates and private keys are used to establish authenticated, encrypted channels when you browse the web
 \item Asymmetric and symmetric ciphers are used together for HTTPS
 \end{itemize}
 \end{frame}
