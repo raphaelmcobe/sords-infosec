@@ -163,22 +163,6 @@ We will come back to some of this in part 2 of our lecture course :)
 
 \begin{frame}{Processes}
 \begin{center}
-\begin{tabular}{ |c|c| }
-\hline
- \textbf{Security Measure} & \textbf{Requires}\\
-\hline \hline
- Antivirus software & Virus signature Updates \\ \hline
- Monitoring systems & Checking, reacting to alarms \\  \hline
- Endpoint security & OS and software patching \\ \hline
- Security policies & Updating, enforcing \\
-\hline
-\end{tabular}
-\end{center}
-Risk management, vulnerability management, business continuity planning, security  development lifecycle etc... \textbf{these are ongoing processes, not one-off exercises.}
-\end{frame}
-
-\begin{frame}{Processes}
-\begin{center}
 \includegraphics[width=0.8\linewidth]{process1.png} 
 \end{center}
 \end{frame}
@@ -194,7 +178,6 @@ Security solutions often degrade with time - they need to be verified periodical
 	\begin{itemize}
 		\item Have flawed risk perception
 		\item Are bad at dealing with exceptions and rare cases
-        \item Can't take correct security decisions
         \item Put too much trust in their computers
         \item Easily fall for social engineering
         \item Sometimes turn malicious
@@ -279,18 +262,11 @@ Your Identity is the answer to the question: \textbf{``who are you?"}
 \end{frame}
 
 \begin{frame}{Authentication and Authorisation}
-\includegraphics[width=1\linewidth]{authn-authz.png}
-\end{frame}
-
-\begin{frame}{Authentication and Authorisation}
 Authentication = How can I prove my Identity?
-\includegraphics[width=1\linewidth]{authn-authz.png}
-\end{frame}
-
-\begin{frame}{Authentication and Authorisation}
 Authorisation = What am I able to do?
 \includegraphics[width=1\linewidth]{authn-authz.png}
 \end{frame}
+
 \begin{frame}{Multifactor Authentication}
 \begin{center}
 \begin{tabular}{ |c|c|c| }
@@ -371,7 +347,7 @@ Which is most secure?
 \begin{itemize}
 \item Key objectives: Confidentiality, Integrity and Availability
 \item Consider disaster scenarios and plan for them 
-\item Authentication and Authorisation are critical to meeting security objectives
+\item Online Identity is critical to meeting security objectives
 \end{itemize}
 \end{frame}
 
@@ -467,6 +443,61 @@ The idea doesn’t work
 \item Security is a balance of risk, usability and cost
 \item The Security Design Principles discussed will help you prioritise security
 \item Ensure Security Design Principles are included from the very beginning of a software project
+\end{itemize}
+\end{frame}
+
+
+\section{Software Vulnerabilities}
+\frame{\sectionpage}
+
+\begin{frame}{Software Vulnerabilities}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{software-vulnerabilities.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Software Vulnerabilities}
+\begin{itemize}
+\item Malicious libraries
+\item Unexpected code hidden in data files
+\item Unchecked input data from users (SQL or command injection)
+\item Compromised computers
+\item ... 
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.4\linewidth]{software-vulnerabilities-red.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{{\color{red}Software Vulnerabilities - Injection}}
+\begin{center}
+\includegraphics[width=1\linewidth]{bad-injection.png}\newline
+{\tiny \url{https://www.kevinlondon.com/2015/07/26/dangerous-python-functions.html}}
+\end{center}
+What if the file were called "; rm -rf /"
+\end{frame}
+
+\begin{frame}{{\color{red}Software Vulnerabilities - Injection}}
+\begin{center}
+\includegraphics[width=1\linewidth]{good-injection.png}\newline
+\end{center}
+\end{frame}
+
+\begin{frame}{Software Vulnerabilities - Libraries}
+\begin{itemize}
+\item When was the library last modified? 
+\item How many people use the library? 
+\item Is it hosted securely?
+\item Is the name correct? E.g. "djago", "diango", "dajngo", impersonated the real library "django" 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Vulnerabilities - Summary}
+\begin{itemize}
+\item Validate user input and data very carefully
+\item Vet third party libraries before using and keep updated
+\item Look up major security flaws for the languages you use, e.g. \href{https://www.r-consortium.org/blog/2015/08/17/best-practices-for-using-r-securely}{"Best Practices for Using R Securely"}
+\item Use tools to help you (e.g. static analysis tools, dependency checkers etc.)
 \end{itemize}
 \end{frame}
 
