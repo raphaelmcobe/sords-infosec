@@ -258,14 +258,6 @@ What is a *good* hash function? For \(h = hash(m)\)
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Checksums}
-You may also hear the term "\textbf{Checksum}". The concept is the same but checksums are used specifically to validate the integrity data. 
-\begin{center}
-\includegraphics[width=0.45\linewidth]{credit-card.png} \newline
-{\footnotesize The last digit is a checksum! \url{https://www.codeproject.com/Tips/515367/Validate-credit-card-number-with-Mod-algorithm} \par}
-\end{center}
-\end{frame}
-
 \begin{frame}{Hash Functions - Summary}
 \begin{itemize}
 \item Hash functions transform arbitrary data to a fixed size in a deterministic (repeatable) way
@@ -292,10 +284,12 @@ What is a certificate? A digital document that:
 Certificates are accompanied by private keys (kept secret by the owner!)
 \end{frame}
 
-\begin{frame}{{\color{red}What is a digital signature?}}
-\begin{center}
-\includegraphics[width=0.9\linewidth]{digital-signature.png}
-\end{center}
+\begin{frame}{Certificate Authentication}
+Owning a Certificate of Alice does not mean that you are Alice
+\begin{itemize}
+\item Holding a Certificate does not imply you are authenticated
+\item How would you verify that the person who comes to you pretending to be Alice and showing you a certificate of Alice is really Alice ?
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Certificate Authentication}
@@ -304,7 +298,7 @@ Owning a Certificate of Alice does not mean that you are Alice
 \item Holding a Certificate does not imply you are authenticated
 \item How would you verify that the person who comes to you pretending to be Alice and showing you a certificate of Alice is really Alice ?
 \begin{itemize}
-\item You have to challenge her!
+\item \textbf{You have to challenge her!}
 \item Only the real Alice has the private key that goes in pair with the public key in the certificate.
 \end{itemize}
 \end{itemize}
@@ -318,8 +312,8 @@ Owning a Certificate of Alice does not mean that you are Alice
 
 \begin{frame}{Certificates - Summary}
 \begin{itemize}
-\item Contain a public key, identity information and a signature
-\item Certificates are signed by Certificate Authorities who are trusted to validate the certificates
+\item Contain a public key and identity information
+\item Certificates are validated by Certificate Authorities
 \item Certificates \& private keys together allow asymmetric encryption and authentication
 \end{itemize}
 \end{frame}
@@ -354,7 +348,7 @@ Hyper-Text Transfer Protocol \textbf{Secure}
 \begin{frame}{HTTPS}
 How do we know who to trust?
 \begin{itemize}
-\item Trusted Certificate Authorities issue Certificates to websites, they create the digital signatures (e.g. Comodo, LetsEncrypt)
+\item Trusted Certificate Authorities issue Certificates to websites (e.g. Comodo, LetsEncrypt)
 \item Browsers alert when there is a problem with the certificate, e.g. the description does not match the host name
 \end{itemize}
 \begin{center}
@@ -369,7 +363,7 @@ How do we know who to trust?
 \textbf{DOs} & \textbf{DON'Ts} \\ \hline \hline
 Respect warnings for invalid certificates & Continue if you're not 100\% sure!\\ \hline
 Check that credit cards and passwords are sent over HTTPS & Enter data on forms over HTTP\\ \hline
-Verify the checksum of downloaded software & Download software from unverified sources\\ \hline 
+Verify the hashes of downloaded software & Download software from unverified sources\\ \hline 
 \end{tabular}
 \end{center}
 \end{frame}
@@ -388,6 +382,12 @@ Verify the checksum of downloaded software & Download software from unverified s
 \item Find us during the break
 \item You are welcome to contact us after the school
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Ethics Question}
+\begin{center}
+\textit{You need to encrypt sensitive data for an international research group. The government in the country where you live mandates a certain encryption technology and is widely suspected of using “backdoors” (i.e. ways to access the data without knowing the encryption key). How do you respond?}
+\end{center}
 \end{frame}
 
 \begin{frame}{Credits}
