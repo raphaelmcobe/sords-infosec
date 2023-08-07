@@ -1,45 +1,36 @@
-\documentclass{beamer}
-% * <hannah.short@cern.ch> 2018-08-09T07:11:21.779Z:
-%
-% ^.
+\documentclass[aspectratio=169]{beamer}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{eso-pic}
 \usepackage{multicol}
 \usepackage{hyperref}
-\usetheme{cern}
+
 \usepackage{wrapfig}
 
-%The CERN logo is legally protected. Please visit http://cern.ch/copyright for information on the terms of use of CERN content, including the CERN logo.
+\title[Information Security - Raphael Cobe]{Information Security}
+\author{Raphael Cobe \texttt{raphaelmcobe@gmail.com}}
+\date{August, 2023}
 
-% The optional `\author` command defines the author and is displayed in the slide produced by the `\titlepage` command.
-\author{Hannah Short (CERN), Sebastian Lopienski (CERN)}
+\usetheme{guadec}
 
-% The optional `\title` command defines the title and is displayed in the slide produced by the `\titlepage` command.
-\title{Introduction to Information Security}
+%\AtBeginSection{\frame{\sectionpage}}
 
-% The optional `\subtitle` command will add a smaller title below the main one, and will not be displayed in any of the slides' footer.
-\subtitle{CODATA School}
 
-% The optional `\date` command will display a custom free text date on the all of the slides' footer. If omitted today's date will be used.
-%\date{Monday, 1st January 2018}
+\newcommand\AtPagemyUpperLeft[1]{\AtPageLowerLeft{%
+\put(\LenToUnit{0.8\paperwidth},\LenToUnit{0.85\paperheight}){#1}}}
+
 
 \begin{document}
 
-\frontcover
-
-% The optional `\titlepage` command will create a slide with the presentation's title, subtitle and author.
-\frame{\titlepage}
-
-\begin{frame}{Lecturers}
-These slides have been compiled by members of the CERN Computer Security Team based at CERN, the European Organisation for Nuclear Research.
-\begin{center}
-\begin{tabular}{ c c  }
- \includegraphics[width=0.2\linewidth]{lecturer1.png} & \includegraphics[width=0.2\linewidth]{Lecturer2.png}  \\ 
- Hannah Short & Sebastian Lopienski  \\  
-\end{tabular}
-\end{center}
+\begin{frame}[plain]
+\titlepage
 \end{frame}
 
-% The optional `\tableofcontents` command will automatically create a table of contents based om the sections.
+\AddToShipoutPictureFG{
+  \AtPagemyUpperLeft{{\includegraphics[width=2.5cm,keepaspectratio]{logo}}}
+}%
+
 \frame{\tableofcontents}
 
 \begin{frame}{Course Objectives}
@@ -51,12 +42,12 @@ These slides have been compiled by members of the CERN Computer Security Team ba
 \textit{}{If the slide title is in {\color{red}red}, the slide is considered an advanced topic}
 \end{frame}
 
-\begin{frame}{Security Measures}
-Is this a good security measure?
-\begin{center}
-\includegraphics[width=0.6\linewidth]{flipflops.png}
-\end{center}
-\end{frame}
+%\begin{frame}{Security Measures}
+%Is this a good security measure?
+%\begin{center}
+%\includegraphics[width=0.6\linewidth]{flipflops.png}
+%\end{center}
+%\end{frame}
 
 \section{Why Security?}
 \frame{\sectionpage}
@@ -123,23 +114,6 @@ But we're Scientists, surely we're not a target...!
   \end{center}
 \end{frame}
 
-\begin{frame}{Attackers}
-  \begin{center} 
-      \includegraphics[width=1\linewidth]{attackers.png} 
-    \end{center}
-\end{frame}
-
-\begin{frame}{Hacking as a Business}
-\begin{center}
-\includegraphics[width=0.8\linewidth]{google-bounty.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Hacking as a Business}
-\begin{center}
-\includegraphics[width=0.8\linewidth]{facebook-bounty.png}
-\end{center}
-\end{frame}
 
 \begin{frame}{Why Security - Summary}
 \begin{itemize}
@@ -364,15 +338,15 @@ Is this a good security measure?
  \end{center}
 \end{frame}
 
-\begin{frame}{Security Measures}
-How much security?
-\begin{tabular}{c c}
-\includegraphics[height = 3.5cm]{ostrich.jpg}
-& \includegraphics[height = 3.5cm]{cat.jpg}
-\end{tabular}
-\centering
-It's a balance of risk, usability and cost 
-\end{frame}
+%\begin{frame}{Security Measures}
+%How much security?
+%\begin{tabular}{c c}
+%\includegraphics[height = 3.5cm]{ostrich.jpg}
+%& \includegraphics[height = 3.5cm]{cat.jpg}
+%\end{tabular}
+%\centering
+%It's a balance of risk, usability and cost 
+%\end{frame}
 
 \begin{frame}{Security Design Principles}
   \begin{itemize}
@@ -438,101 +412,301 @@ The idea doesn’t work
 \end{frame}
 
 
-\section{Software Vulnerabilities}
+%\section{Software Vulnerabilities}
+%\frame{\sectionpage}
+%
+%\begin{frame}{Software Vulnerabilities}
+%\begin{center}
+%\includegraphics[width=0.8\linewidth]{software-vulnerabilities.png}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Software Vulnerabilities}
+%\begin{itemize}
+%\item Malicious libraries
+%\item Unexpected code hidden in data files
+%\item Unchecked input data from users (SQL or command injection)
+%\item ... 
+%\end{itemize}
+%\begin{center}
+%\includegraphics[width=0.4\linewidth]{software-vulnerabilities-red.png}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{{\color{red}Software Vulnerabilities - Injection}}
+%\begin{center}
+%\includegraphics[width=1\linewidth]{bad-injection.png}\newline
+%{\tiny \url{https://www.kevinlondon.com/2015/07/26/dangerous-python-functions.html}}
+%\end{center}
+%What if the file were called "; rm -rf /"
+%\end{frame}
+%
+%\begin{frame}{{\color{red}Software Vulnerabilities - Injection}}
+%\begin{center}
+%\includegraphics[width=1\linewidth]{good-injection.png}\newline
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Software Vulnerabilities - Libraries}
+%\begin{itemize}
+%\item When was the library last modified? 
+%\item How many people use the library? 
+%\item Is it hosted securely?
+%\item Is the name correct? E.g. "djago", "diango", "dajngo", impersonated the real library "django" 
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Software Vulnerabilities - Summary}
+%\begin{itemize}
+%\item Validate user input and data very carefully
+%\item Vet third party libraries before using and keep updated
+%\item Look up major security flaws for the languages you use, e.g. \href{https://www.r-consortium.org/blog/2015/08/17/best-practices-for-using-r-securely}{"Best Practices for Using R Securely"}
+%\item Use tools to help you (e.g. static analysis tools, dependency checkers etc.)
+%\end{itemize}
+%\end{frame}
+%
+%\section{Data Privacy}
+%\frame{\sectionpage}
+%
+%\begin{frame}{Data Protection}
+%As a Data Scientist, you may be collecting Personal Information. If this data is not treated according to the law, you may be liable for significant fines. 
+%\begin{itemize}
+%\item Many countries have their own Data Protection laws
+%\item The EU General Data Protection Regulation is applicable to anyone physically located in the EU
+%\item Certain research communities require approval from ethics boards for data collection
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Data Protection}
+%Best Practices
+%\begin{itemize}
+%\item \textbf{Minimise} Data Collection
+%\item Be \textbf{transparent}; why are you collecting the data? Which data are you collecting? How will you share it? How long will you keep it?
+%\item Treat the data with \textbf{respect}; store it securely, anonymise it when possible
+%\item Make it clear how data owners can \textbf{retrieve} their data, or request \textbf{modification} or \textbf{deletion}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Anonymisation}
+%\begin{itemize}
+%\item Even if you anonymise the name, are individuals still identifiable from the data?
+%\item If you convert names to anonymous strings, can you get back to the name?  
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{}
+%\begin{center}
+%\includegraphics[width=0.45\linewidth]{anonymous-form.png}
+%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Data Privacy - Summary}
+%\begin{itemize}
+%\item Minimise the collection of privacy impacting data 
+%\item Be transparent about data processing and transfer
+%\end{itemize}
+%\end{frame}
+
+\section{Introduction to Encryption}
 \frame{\sectionpage}
 
-\begin{frame}{Software Vulnerabilities}
+\begin{frame}{Why Encryption?}
 \begin{center}
-\includegraphics[width=0.8\linewidth]{software-vulnerabilities.png}
+	\includegraphics[width=0.7\linewidth]{insecure-channel.png}
 \end{center}
 \end{frame}
 
-\begin{frame}{Software Vulnerabilities}
+\begin{frame}{Why Encryption?}
+What are the goals? 
 \begin{itemize}
-\item Malicious libraries
-\item Unexpected code hidden in data files
-\item Unchecked input data from users (SQL or command injection)
-\item ... 
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.4\linewidth]{software-vulnerabilities-red.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{{\color{red}Software Vulnerabilities - Injection}}
-\begin{center}
-\includegraphics[width=1\linewidth]{bad-injection.png}\newline
-{\tiny \url{https://www.kevinlondon.com/2015/07/26/dangerous-python-functions.html}}
-\end{center}
-What if the file were called "; rm -rf /"
-\end{frame}
-
-\begin{frame}{{\color{red}Software Vulnerabilities - Injection}}
-\begin{center}
-\includegraphics[width=1\linewidth]{good-injection.png}\newline
-\end{center}
-\end{frame}
-
-\begin{frame}{Software Vulnerabilities - Libraries}
-\begin{itemize}
-\item When was the library last modified? 
-\item How many people use the library? 
-\item Is it hosted securely?
-\item Is the name correct? E.g. "djago", "diango", "dajngo", impersonated the real library "django" 
+  \item \textbf{Confidentiality}: To prevent adversaries from viewing/accessing messages
+  \item \textbf{Integrity}: To prevent adversaries from silently modifying messages
+  \item \textbf{Authentication}: To prevent adversaries from impersonating an identity
+  \item \textbf{Non-repudiation}: To prevent adversaries from denying an action
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Software Vulnerabilities - Summary}
+\begin{frame}{Encryption in practice}
 \begin{itemize}
-\item Validate user input and data very carefully
-\item Vet third party libraries before using and keep updated
-\item Look up major security flaws for the languages you use, e.g. \href{https://www.r-consortium.org/blog/2015/08/17/best-practices-for-using-r-securely}{"Best Practices for Using R Securely"}
-\item Use tools to help you (e.g. static analysis tools, dependency checkers etc.)
+\item There are several common, robust encryption algorithms available (e.g. AES and RSA) 
+\item A good encryption algorithm relies on keeping the key secret, not the cipher algorithm itself!
+\item Choose a well known, secure algorithm and keep the key secure (do not trust proprietary algorithms)
+\item There are two main types; \textbf{Symmetric and Asymmetric} 
 \end{itemize}
 \end{frame}
 
-\section{Data Privacy}
+\begin{frame}{Symmetric Encryption}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{symmetric-encryption.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Asymmetric Encryption}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{asymmetric-encryption.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Asymmetric Encryption}
+\begin{center}
+	\includegraphics[width=0.45\linewidth]{asymmetric-encryption.png}
+\end{center}
+2 interchangeable (linked) keys
+\begin{itemize}
+  \item Public + Private 
+  \item Mathematically difficult to compute one from the other 
+  \item 1 for encryption and the other decryption
+\end{itemize} 
+\end{frame}
+
+\begin{frame}{{\color{red}Asymmetric Encryption}}
+\begin{itemize}
+\item Relies on the fact that it is \textbf{easy} to multiply primes but hard to factorise their product
+\item Consider the number 221... what are its factors?
+\item Security is dependent on the status of computing technologies (it's secure now, but won't be in 100 years...)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{{\color{red}Asymmetric Enc. - Confidentiality}}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{asymmetric-encryption.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{{\color{red}Asymmetric Enc. - Authentication}}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{asymmetric-authentication.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Encryption - Summary}
+\begin{itemize}
+\item Encryption can be used for confidential, authenticated communication 
+\item Symmetric and Asymmetric Ciphers have evolved over time
+\end{itemize}
+\end{frame}
+
+\section{Hash Functions}
 \frame{\sectionpage}
 
-\begin{frame}{Data Protection}
-As a Data Scientist, you may be collecting Personal Information. If this data is not treated according to the law, you may be liable for significant fines. 
-\begin{itemize}
-\item Many countries have their own Data Protection laws
-\item The EU General Data Protection Regulation is applicable to anyone physically located in the EU
-\item Certain research communities require approval from ethics boards for data collection
-\end{itemize}
+\begin{frame}{Hash Functions}
+A hash function is any function that can be used to map data of arbitrary size to data of a fixed size.
 \end{frame}
 
-\begin{frame}{Data Protection}
-Best Practices
+\begin{frame}{Hash Functions}
+How can we make something of a fixed length? 
 \begin{itemize}
-\item \textbf{Minimise} Data Collection
-\item Be \textbf{transparent}; why are you collecting the data? Which data are you collecting? How will you share it? How long will you keep it?
-\item Treat the data with \textbf{respect}; store it securely, anonymise it when possible
-\item Make it clear how data owners can \textbf{retrieve} their data, or request \textbf{modification} or \textbf{deletion}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Anonymisation}
-\begin{itemize}
-\item Even if you anonymise the name, are individuals still identifiable from the data?
-\item If you convert names to anonymous strings, can you get back to the name?  
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
+\item We want the input (however long) to turn into one of a smaller range of possible outputs
+\item Consider a registration process where attendees pick up their badges based on the first letter of surname... 
 \begin{center}
-\includegraphics[width=0.45\linewidth]{anonymous-form.png}
+\includegraphics[width=0.3\linewidth]{surname-sort.png}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hash Functions}
+E.g. \textit{``Today is gonna be the day that they're gonna throw it back to you. By now you should've somehow realized what you gotta do. I don't believe that anybody feels the way I do, about you now"} 
+becomes \textbf{0283bf5eb0c60213a99f011a89300179} using the MD5 hashing algorithm
+\newline
+\url{https://passwordsgenerator.net/md5-hash-generator/}
+\end{frame}
+
+\begin{frame}{Hash Functions}
+What is a *good* hash function? For \(h = hash(m)\)
+\begin{itemize}
+\item Difficult to find any message \(m\) with a given hash value \(h\)
+\item Difficult to find 2 messages \(m1\), \(m2\) such that: \(hash(m1) = hash(m2)\)
+\end{itemize}
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{hash.png}
 \end{center}
 \end{frame}
 
-\begin{frame}{Data Privacy - Summary}
+\begin{frame}{{\color{red}Hash Functions - a Use Case}}
+\begin{center}
+	\includegraphics[width=0.65\linewidth]{r-studio.png}
+    \newline
+	{\footnotesize \url{https://www.rstudio.com/products/rstudio/download/} }
+\end{center}
+\end{frame}
+
+\begin{frame}{Hash Functions - another Use Case}
 \begin{itemize}
-\item Minimise the collection of privacy impacting data 
-\item Be transparent about data processing and transfer
+\item Instead of storing passwords, secure services store their hashes!
+\item What would happen if the database is compromised?
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Hash Functions - another Use Case}
+\begin{itemize}
+\item Instead of storing passwords, secure services store their hashes!
+\item What would happen if the database is compromised?
+\begin{itemize}
+\item \textbf{Dictionary attacks still valid}
+\item This can be avoided by "salting" passwords, the system adds digits before hashing
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hash Functions - Summary}
+\begin{itemize}
+\item Hash functions transform arbitrary data to a fixed size in a deterministic (repeatable) way
+\item There are multiple applications, e.g. file integrity \& password storage
+\end{itemize}
+\end{frame}
+
+\section{Certificates}
+\frame{\sectionpage}
+
+\begin{frame}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{cern-certificate.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Certificates}
+What is a certificate? A digital document that:
+\begin{itemize}
+\item Contains identity information
+\item Contains a public key (this is public information)
+\item Is digitally ``signed" by a trusted body 
+\end{itemize}
+Certificates are accompanied by private keys (kept secret by the owner!)
+\end{frame}
+
+\begin{frame}{Certificate Authentication}
+Owning a Certificate of Alice does not mean that you are Alice
+\begin{itemize}
+\item Holding a Certificate does not imply you are authenticated
+\item How would you verify that the person who comes to you pretending to be Alice and showing you a certificate of Alice is really Alice ?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Certificate Authentication}
+Owning a Certificate of Alice does not mean that you are Alice
+\begin{itemize}
+\item Holding a Certificate does not imply you are authenticated
+\item How would you verify that the person who comes to you pretending to be Alice and showing you a certificate of Alice is really Alice ?
+\begin{itemize}
+\item \textbf{You have to challenge her!}
+\item Only the real Alice has the private key that goes in pair with the public key in the certificate.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{{\color{red}Certificate Authentication}}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{certificate-verification.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Certificates - Summary}
+\begin{itemize}
+\item Contain a public key and identity information
+\item Certificates are validated by Certificate Authorities
+\item Certificates \& private keys together allow asymmetric encryption and authentication
+\end{itemize}
+\end{frame}
 \begin{frame}{Questions?}
 \begin{itemize}
 \item Ask now
@@ -540,15 +714,5 @@ Best Practices
 \item You are welcome to contact us after the school
 \end{itemize}
 \end{frame}
-
-\begin{frame}{Credits}
-	\begin{itemize}
-		\item Sebastian Lopienski (CERN IT) for security principles
-		\item Stefan Lueders (CERN IT) for threats
-        \item Hannah Short (CERN IT) for identity aspects 
-	\end{itemize}
-\end{frame}
-
-\backcover
 
 \end{document}
